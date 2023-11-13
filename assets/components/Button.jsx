@@ -1,24 +1,24 @@
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React, { useState } from 'react'
 
-const Button = ({labelButton, onpress}, props) => {
-    const [color, setColor] = useState(props.cor)
+export default function Button(props){
+    const [color, setColor] = useState(props.cor);
 
-    //const corzinha () => {
-        //const newcolor = {cor}
-    //}
+    const coloridinho = () => {
+        const newColoridinho = {cor}
+        setColor = newColoridinho
+    }
+
   return (
     <TouchableOpacity styles={styles.button}
-        onpress={onpress}
+        onPress={props.paralelepipedo}
     >
-        <Text style={{color}}>
-        {labelButton}
+        <Text style={{ color }}>
+        {props.labelButton}
         </Text>
     </TouchableOpacity>
   )
 }
-
-export default Button
 
 const styles = StyleSheet.create({
     button: {

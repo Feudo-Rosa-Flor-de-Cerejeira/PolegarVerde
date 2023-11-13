@@ -11,13 +11,11 @@ export default function Routes() {
       <Stack.Navigator screenOptions={{
         headerShown: false,
       }} initialRouteName='Home'>
-
-
+        
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="Login2" component={Login2} />
         <Stack.Screen name="Onboard" component={Onboard} />
       </Stack.Navigator>
-
   );
 }

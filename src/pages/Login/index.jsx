@@ -1,14 +1,9 @@
-import { useNavigation } from '@react-navigation/native';
 import { Text, View, StyleSheet, Pressable } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import Button from '../../../assets/components/Button.jsx';
 
-export default function Login(){
-    const navigation = useNavigation()
-  function gotoLogin2() {
-    navigation.navigate('Login2')
-  }
-    const signIn = () => gotoLogin2()
+export default function Login({ navigation }){
+
     return ( 
         <View style={styles.container}>
             <StatusBar style="auto" />
@@ -22,10 +17,10 @@ export default function Login(){
             </View>
             <View style={styles.caixadosbotao}>
                 <View style={styles.botaoLogin1}>
-                    <Button labelButton="Fazer Login" onpress={signIn} style={styles.botaoLogin1}/>
+                    <Button labelButton="Fazer Login" paralelepipedo={() => navigation.navigate('Login2')} cor='#ffffff'/>
                 </View>
                 <View style={styles.botaoLogin2}>
-                    <Button labelButton="Criar Conta" onpress={signIn} style={styles.botaoLogin2}/>  
+                    <Button labelButton="Criar Conta" style={styles.botaoLogin2}/>  
                 </View>    
             </View>
         </View>
