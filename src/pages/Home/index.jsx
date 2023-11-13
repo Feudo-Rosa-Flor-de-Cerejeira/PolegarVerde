@@ -5,12 +5,12 @@ import { Button, Image, StyleSheet, Text, View } from 'react-native';
 
 export default function Home() {
   const navigation = useNavigation()
-  function gotoonboard() {
-    navigation.navigate('Onboard')
+  function gotoLogin() {
+    navigation.navigate('Login')
   }
-  useEffect(() => {
+  useEffect(() => {257
     setTimeout(() => {
-      gotoonboard()
+      gotoLogin()
     }, 2000)
   }, [])
   return (
