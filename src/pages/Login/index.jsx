@@ -1,4 +1,4 @@
-import { Text, View, StyleSheet, Pressable } from 'react-native';
+import { Text, View, StyleSheet, Pressable, Image} from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import Button from '../../../assets/components/Button.jsx';
 
@@ -7,6 +7,9 @@ export default function Login({ navigation }){
     return ( 
         <View style={styles.container}>
             <StatusBar style="auto" />
+            <View style={styles.gradepolegares}>
+            <Image style={styles.polegares} source={require('../../../assets/images/polegares.png')}/>
+            </View>
             <View style={styles.caixa}>
                 <Text style={styles.tituloprincipal} >
                     Bem vindo(a) ao
@@ -36,7 +39,7 @@ const styles = StyleSheet.create({
         gap: 64,
     }, 
     caixa:{
-        marginTop: 312,
+        marginTop: 192,
         marginLeft: 24,
         display: 'flex',
         alignItems: 'flex-start',
@@ -79,6 +82,17 @@ const styles = StyleSheet.create({
         height: 42, 
         borderRadius: 8, 
         borderWidth: 1, 
+    },
+    polegares: {
+        flexShrink: 0,
+        width: 408,
+        height: 140,
+        marginLeft: -240,
+        marginRight: -240,
+    },
+    gradepolegares: {
+        alignItems: 'center',
+    justifyContent: 'center',
     }
 })
 
