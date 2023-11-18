@@ -1,4 +1,4 @@
-import { Text, View, StyleSheet, Pressable, Image} from 'react-native';
+import { Text, View, StyleSheet, Image} from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import Button from '../../../assets/components/Button.jsx';
 
@@ -19,12 +19,12 @@ export default function Login({ navigation }){
                 </Text>
             </View>
             <View style={styles.caixadosbotao}>
-                <View style={styles.botaoLogin1}>
-                    <Button labelButton="Fazer Login" paralelepipedo={() => navigation.navigate('Login2')} cor='#ffffff'/>
-                </View>
-                <View style={styles.botaoLogin2}>
-                    <Button labelButton="Criar Conta" style={styles.botaoLogin2}/>  
-                </View>    
+                <Button style={styles.botaoLogin1} onPress={() => navigation.navigate('Login2')} >
+                    Fazer Login
+                </Button>
+                <Button style={styles.botaoLogin2}>
+                    Criar Conta
+                </Button> 
             </View>
         </View>
 
@@ -71,12 +71,13 @@ const styles = StyleSheet.create({
         width: 312,
         justifyContent: 'center',
         alignItems: 'center',
-        borderRadius: 8,
+        borderRadius: 8
     },
     botaoLogin2: {
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: '#F5F5F5',
+        color: "#467B13",
         borderColor: '#467B13',
         width: 312,
         height: 42, 
