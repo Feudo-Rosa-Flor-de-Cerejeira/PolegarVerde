@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import { Text, View, StyleSheet, Image, TextInput } from "react-native";
 import Button from '../../../assets/components/Button.jsx';
-import { signInWithEmailAndPassword } from 'firebase/auth'; // Importe a função signInWithEmailAndPassword do módulo de autenticação do Firebase.
+import { createUserWithEmailAndPassword } from 'firebase/auth'; // Importe a função signInWithEmailAndPassword do módulo de autenticação do Firebase.
 import { auth } from '../../../Services/firebaseConfig.js'; // Importe o objeto 'auth' do seu arquivo 'firebaseConfig.js'.
 
-export default function Login2({ navigation }) {
+export default function Registrar({ navigation }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleLogin = () => {
-    signInWithEmailAndPassword(auth, email, password)
+  const handleRegistrar = () => {
+    createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
         console.log(user);
@@ -19,7 +19,7 @@ export default function Login2({ navigation }) {
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        console.log(errorMessage);
+        console.log('Erro ao cadastrar novo usuário:', errorMessage);
       });
   };
 
@@ -27,7 +27,7 @@ export default function Login2({ navigation }) {
     <View style={styles.containerprincipal}>
       <View style={styles.login}>
         <Image style={styles.x} source={require('../../../assets/images/swap.png')} />
-        <Text style={styles.textologin}>Fazer login</Text>
+        <Text style={styles.textologin}>Fazer Cadastro</Text>
       </View>
       <View style={styles.detalheslogin}>
         <Text style={styles.email}>Email</Text>
@@ -45,8 +45,8 @@ export default function Login2({ navigation }) {
           onChangeText={(text) => setPassword(text)}
           secureTextEntry={true}
         />
-        <Button onPress={handleLogin} style={styles.botaologin}>
-          Login
+        <Button onPress={handleRegistrar} style={styles.botaologin}>
+          Cadastro
         </Button>
       </View>
     </View>

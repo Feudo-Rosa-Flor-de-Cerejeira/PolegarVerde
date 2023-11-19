@@ -19,10 +19,10 @@ export default function Login({ navigation }){
                 </Text>
             </View>
             <View style={styles.caixadosbotao}>
-                <Button style={styles.botaoLogin1} onPress={() => navigation.navigate('Login2')} >
+                <Button style={styles.botaoLogin1} onPress={() => navigation.navigate('Login2')}>
                     Fazer Login
                 </Button>
-                <Button style={styles.botaoLogin2}>
+                <Button style={styles.botaoLogin2} onPress={() => navigation.navigate('Registrar')}>
                     Criar Conta
                 </Button> 
             </View>
