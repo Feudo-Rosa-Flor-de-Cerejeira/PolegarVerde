@@ -6,7 +6,7 @@ export default function Form() {
     const [Senha, setSenha] = React.useState('');
     const [Confirma, setConfirma]= React.useState('');
     return(
-        <View style={styles.container}>
+    <View style={styles.container}>
         <View style={styles.form1}> 
         <Text style= {styles.texto1}>
           Email
@@ -71,7 +71,8 @@ const styles = StyleSheet.create({
     
       },
       input1: {
-        textAlign: 'center',
+        fontSize: 10,
+        padding: 15,
         justifyContent: 'space-evenly', 
         alignItems: 'center', 
         height: 42,
@@ -89,7 +90,8 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
       },
       input2: {
-        textAlign: 'center',
+        fontSize: 10,
+        padding: 15,
         justifyContent: 'space-evenly', 
         alignItems: 'center', 
         height: 42,
@@ -106,7 +108,8 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
       },
       input3: {
-        textAlign: 'center',
+        fontSize: 10,
+        padding: 15,
         justifyContent: 'space-evenly', 
         alignItems: 'center', 
         height: 42,

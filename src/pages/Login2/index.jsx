@@ -27,7 +27,7 @@ export default function Login2({navigation}) {
                 </View>
                 <View styles={styles.form2}>
                     <Text style= {styles.texto2}>
-                        Criar Senha
+                        Senha
                     </Text>
                     <TextInput
                         style={styles.input2}
@@ -87,7 +87,9 @@ const styles = StyleSheet.create({
     
       },
     input1: {
-        textAlign: 'center',
+        fontFamily: 'Inter',
+        fontSize: 10,
+        padding: 15,
         justifyContent: 'space-evenly', 
         alignItems: 'center', 
         height: 42,
@@ -103,7 +105,9 @@ const styles = StyleSheet.create({
         gap: 8,
       },
       input2: {
-        textAlign: 'center',
+        fontFamily: 'Inter',
+        fontSize: 10,
+        padding: 15,
         justifyContent: 'space-evenly', 
         alignItems: 'center', 
         height: 42,

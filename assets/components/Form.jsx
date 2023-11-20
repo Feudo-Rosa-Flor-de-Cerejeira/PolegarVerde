@@ -58,7 +58,8 @@ const styles = StyleSheet.create({
 
   },
   input1: {
-    textAlign: 'center',
+    fontSize: 10,
+    padding: 12,
     marginLeft: 24,
     marginRight: 16,
     height: 39,
@@ -76,7 +77,8 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   input2: {
-    textAlign: 'center',
+    fontSize: 10,
+    padding: 12,
     marginRight: 24,
     height: 39,
     width: 148,
