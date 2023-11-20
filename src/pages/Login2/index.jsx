@@ -130,6 +130,7 @@ const styles = StyleSheet.create({
       },
       normalText: {
         color: '#1E1E1E',
+        marginRight: 5,
     
       },
 
