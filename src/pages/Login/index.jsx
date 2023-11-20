@@ -6,7 +6,7 @@ export default function Login({ navigation }){
 
     return ( 
         <View style={styles.container}>
-            <StatusBar style="auto" />
+
             <View style={styles.gradepolegares}>
             <Image style={styles.polegares} source={require('../../../assets/images/polegares.png')}/>
             </View>
@@ -15,14 +15,14 @@ export default function Login({ navigation }){
                     Bem vindo(a) ao
                 </Text>
                 <Text style={styles.textao}>
-                    Polegar Verde
+                    polegar verde
                 </Text>
             </View>
             <View style={styles.caixadosbotao}>
                 <Button style={styles.botaoLogin1} onPress={() => navigation.navigate('Login2')}>
                     Fazer Login
                 </Button>
-                <Button style={styles.botaoLogin2} onPress={() => navigation.navigate('Registrar')}>
+                <Button style={styles.botaoLogin2} onPress={() => navigation.navigate('Registro')}>
                     Criar Conta
                 </Button> 
             </View>

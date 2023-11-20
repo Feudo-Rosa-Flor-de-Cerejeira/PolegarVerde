@@ -1,106 +1,145 @@
-import React, { useState } from "react";
-import { Text, View, StyleSheet, Image, TextInput } from "react-native";
-import Button from '../../../assets/components/Button.jsx';
-import { signInWithEmailAndPassword } from 'firebase/auth'; // Importe a função signInWithEmailAndPassword do módulo de autenticação do Firebase.
-import { auth } from '../../../Services/firebaseConfig.js'; // Importe o objeto 'auth' do seu arquivo 'firebaseConfig.js'.
+import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
+import React from 'react';
+import ExitButton from '../../../assets/components/ExitButton.jsx';
+import Button2 from '../../../assets/components/Button2.jsx';
 
-export default function Login2({ navigation }) {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-
-  const handleLogin = () => {
-    signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        const user = userCredential.user;
-        console.log(user);
-        // Você pode redirecionar para a próxima tela ou realizar outras ações após o login bem-sucedido
-        navigation.navigate('GuiaVerde');
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log(errorMessage);
-      });
-  };
-
-  return (
-    <View style={styles.containerprincipal}>
-      <View style={styles.login}>
-        <Image style={styles.x} source={require('../../../assets/images/swap.png')} />
-        <Text style={styles.textologin}>Fazer login</Text>
-      </View>
-      <View style={styles.detalheslogin}>
-        <Text style={styles.email}>Email</Text>
-        <TextInput
-          style={styles.botaoemail}
-          placeholder="Digite seu email"
-          value={email}
-          onChangeText={(text) => setEmail(text)}
-        />
-        <Text style={styles.email}>Senha</Text>
-        <TextInput
-          style={styles.botaoemail}
-          placeholder="Digite sua senha"
-          value={password}
-          onChangeText={(text) => setPassword(text)}
-          secureTextEntry={true}
-        />
-        <Button onPress={handleLogin} style={styles.botaologin}>
-          Login
-        </Button>
-      </View>
+export default function Login2({navigation}) {
+    const [Email, setEmail] = React.useState('');
+    const [Senha, setSenha] = React.useState('');
+    return (
+    <View style={styles.containerPrincipal}>
+            <View style={styles.boxtexto}>
+                <ExitButton onPress={() => navigation.navigate('Login')}/> 
+                <Text style={styles.texto}>
+                    Fazer Login
+                </Text>
+            </View>
+            <View style={styles.containerSecundario}>
+                <View style={styles.form1}>
+                    <Text style= {styles.texto1}>
+                        Email
+                    </Text>
+                    <TextInput
+                        style={styles.input1}
+                        onChangeText={setEmail}
+                        value={Email}
+                        placeholder='ex.: suasplantas@polegarverde.com.br'/>
+                </View>
+                <View styles={styles.form2}>
+                    <Text style= {styles.texto2}>
+                        Senha
+                    </Text>
+                    <TextInput
+                        style={styles.input2}
+                        onChangeText={setSenha}
+                        value={Senha}/>
+                </View>
+                <View style={styles.botao}>
+                <Button2 labelButton='Login'/>
+                </View>
+                <View style={styles.textinho}>
+                    <Text style={styles.normalText}>
+                        Não tem conta?
+                    </Text>
+                    <TouchableOpacity >
+                    <Text style={styles.boldText}>
+                        Cadastre-se
+                    </Text>
+                    </TouchableOpacity>
+                </View>
+            </View>
     </View>
-  );
-}
+    );
+};
 const styles = StyleSheet.create({
-    containerprincipal: {
+    containerPrincipal: {
         flex: 1,
         backgroundColor: '#F5F5F5',
-        gap: 32,
+        gap: 40,
     },
-    login: {
+    boxtexto:{
         marginTop: 51,
-        display: "flex", 
-        padding: 24, 
-        width: 360,
-        alignItems: "flex-start", 
-        flexDirection: "column",
+        marginLeft: 24,
         gap: 24,
     },
-    textologin: {
+    texto: {
+        marginTop: 120,
         color: '#4D8B12',
         fontFamily: 'Syne',
         fontSize: 24,
     },
-    x: {
-        width: 22,
-        height: 22,
+    containerSecundario: {
+        flexDirection: 'column',
+        justifyContent: 'center', 
+        alignItems: 'center',             
+        gap: 40,
     },
-    detalheslogin:{
-        //marginTop: 90,
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "flex-start",
-        gap: 32,
-        alignContent: "stretch", 
-        marginLeft: 24,
-        marginRight: 24,
-    }, 
-    email:{
-        color: "#1E1E1E",
-        fontFamily: "Inter",
+    form1: {
+        display: 'flex',
+        flexDirection: 'column',
+        gap: 8,
+    },
+    texto1: {
+        color: '1E1E1E',
+        fontFamily: 'Inter',
         fontSize: 11,
-    },
-    botaoemail:{
-        background: "#F5F5F5", 
-        borderColor: '#C4C4C4',
-        flexDirection: "column",
-        alignSelf: "stretch",
-        gap: 16,
-    },
-    botaologin: {
-        backgroundColor: "#012E20",
-        alignSelf: "stretch",
-        height: 36,
-    }
-});
+        fontWeight: 'bold',
+    
+      },
+    input1: {
+        fontFamily: 'Inter',
+        fontSize: 10,
+        padding: 15,
+        justifyContent: 'space-evenly', 
+        alignItems: 'center', 
+        height: 42,
+        width: 312,
+        borderWidth: 1,
+        borderRadius: 8,
+        backgroundColor: '#F5F5F5',
+        borderColor: '#4D8B12',
+      },
+      form2: {
+        display: 'flex',
+        flexDirection: 'column',
+      },
+      input2: {
+        fontFamily: 'Inter',
+        fontSize: 10,
+        padding: 15,
+        justifyContent: 'space-evenly', 
+        alignItems: 'center', 
+        height: 42,
+        width: 312,
+        borderWidth: 1,
+        borderRadius: 8,
+        backgroundColor: '#F5F5F5',
+        borderColor: '#4D8B12',
+    
+      },
+      texto2: {
+        color: '1E1E1E',
+        fontFamily: 'Inter',
+        fontSize: 11,
+        fontWeight: 'bold',
+        marginBottom: 8,
+      },
+      textinho: {
+        flexDirection: 'row',
+        justifyContent: 'space-evenly', 
+      },
+      boldText: {
+        fontFamily: 'Inter',
+        fontWeight: 'bold',
+
+      },
+      normalText: {
+        fontFamily: 'Inter',
+        color: '#1E1E1E',
+        marginRight: 5,
+    
+      },
+
+})
+
+
