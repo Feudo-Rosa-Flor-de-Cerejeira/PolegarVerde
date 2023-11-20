@@ -102,7 +102,6 @@ const styles = StyleSheet.create({
       form2: {
         display: 'flex',
         flexDirection: 'column',
-        gap: 8,
       },
       input2: {
         fontFamily: 'Inter',
@@ -123,16 +122,19 @@ const styles = StyleSheet.create({
         fontFamily: 'Inter',
         fontSize: 11,
         fontWeight: 'bold',
+        marginBottom: 8,
       },
       textinho: {
         flexDirection: 'row',
         justifyContent: 'space-evenly', 
       },
       boldText: {
+        fontFamily: 'Inter',
         fontWeight: 'bold',
 
       },
       normalText: {
+        fontFamily: 'Inter',
         color: '#1E1E1E',
         marginRight: 5,
     
