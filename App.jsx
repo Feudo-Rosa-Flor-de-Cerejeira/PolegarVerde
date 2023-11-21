@@ -1,6 +1,6 @@
 import { NavigationContainer } from '@react-navigation/native';
 import Routes from './src/routes';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import * as Font from 'expo-font';
 import AppLoading from 'expo-app-loading';
 import InterRegular from './assets/fonts/Inter-Regular.ttf';

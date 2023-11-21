@@ -2,10 +2,29 @@ import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-nativ
 import React from 'react';
 import ExitButton from '../../../assets/components/ExitButton.jsx';
 import Button2 from '../../../assets/components/Button2.jsx';
+import { useState } from 'react';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../../../Services/firebaseConfig.js';
 
-export default function Login2({navigation}) {
-    const [Email, setEmail] = React.useState('');
-    const [Senha, setSenha] = React.useState('');
+export default function Login2({ navigation }) {
+    const [Email, setEmail] = useState('');
+    const [Senha, setSenha] = useState('');
+  
+    const handleLogin = () => {
+      signInWithEmailAndPassword(auth, Email, Senha)
+        .then((userCredential) => {
+          const user = userCredential.user;
+          console.log(user);
+  
+          navigation.navigate('GuiaVerde');        
+        })
+        .catch((error) => {
+          const errorMessage = error.message;
+          console.log(errorMessage);
+          Alert.alert('Erro ao fazer login', errorMessage);
+        });
+    };
+  
     return (
     <View style={styles.containerPrincipal}>
             <View style={styles.boxtexto}>
@@ -35,17 +54,17 @@ export default function Login2({navigation}) {
                         value={Senha}/>
                 </View>
                 <View style={styles.botao}>
-                <Button2 labelButton='Login'/>
+                <Button2 onPress={handleLogin} labelButton='Login'/>
                 </View>
                 <View style={styles.textinho}>
                     <Text style={styles.normalText}>
                         Não tem conta?
                     </Text>
-                    <TouchableOpacity >
+                    <TouchableOpacity onPress={() => navigation.navigate('Registro')} >
                     <Text style={styles.boldText}>
                         Cadastre-se
                     </Text>
-                    </TouchableOpacity>
+                    </TouchableOpacity >
                 </View>
             </View>
     </View>
