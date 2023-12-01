@@ -16,7 +16,7 @@ export default function Login2({ navigation }) {
           const user = userCredential.user;
           console.log(user);
   
-          navigation.navigate('GuiaVerde');        
+          navigation.navigate('Guia Verde');        
         })
         .catch((error) => {
           const errorMessage = error.message;

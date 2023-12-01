@@ -1,6 +1,6 @@
 import { Text, View, StyleSheet } from "react-native";
 
-export default function GuiaVerde() {
+export default function Onboard() {
     return (
         <View style={styles.container}>
             <Text style={styles.textao}>GuiaVerde</Text>
@@ -10,7 +10,7 @@ export default function GuiaVerde() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#F5F5F5',
+        backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'center',
     },

@@ -25,7 +25,7 @@ export default function Registro({navigation}) {
     
             console.log('Novo usuário cadastrado:', user);
             // Você pode redirecionar para a próxima tela ou realizar outras ações após o login bem-sucedido
-            navigation.navigate('GuiaVerde');
+            navigation.navigate('Perguntas');
           })
           .catch((error) => {
             const errorCode = error.code;
