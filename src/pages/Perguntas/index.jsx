@@ -2,83 +2,107 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { CheckBox } from 'react-native-elements';
 import Button3 from '../../../assets/components/Button3.jsx';
+import { addDoc, collection, getDocs, setDoc, docId, doc } from 'firebase/firestore';
+import { db } from '../../../Services/firebaseConfig.js';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
+export default function Perguntas({ navigation }) {
+  const ref = collection(db, 'respostas'); 
+  const [isChecked, setChecked] = useState(false);
+  const [isChecked2, setChecked2] = useState(false);
 
-export default function Perguntas({navigation}) {
-    const [isChecked, setChecked] = useState(false);
-    const [isChecked2, setChecked2] = useState(false);
-  
-    const toggleCheckBox1 = () => {
-        setChecked(true);
-        setChecked2(false);
-      };
-    
-      const toggleCheckBox2 = () => {
-        setChecked(false);
-        setChecked2(true);
-      };
-    return (
-        <View style={styles.container}>
-            <View style={styles.containerdecima}>
-                <Text style={styles.titulozao}>
-                Pergunta 1 de 4
-                </Text>
-                <View style={styles.barrasalinhadas}>
-                    <View style={styles.divbarra}>
-                        <View style={styles.barra}/>
-                    </View>
-                    <View style={styles.divbarrinha}>
-                        <View style={styles.barrinha}/>
-                    </View>
-                </View>
-            </View>
-            <View style={styles.containerdoscheckbox}>
-            <View style={styles.divtexto}>
-            <Text style={styles.text}>Que tipo de ambiente você possui para o plantio?</Text>
-            </View>
-            <CheckBox
-                title={<View>
-                    <Text style={styles.tituloform}>Ambiente pequeno</Text>
-                    <Text style={styles.subtituloform}>Plantio em vasos casas e apartamentos em locais com luz do sol</Text>
-                    </View>}
-                checked={isChecked}
-                onPress={toggleCheckBox1}
-                checkedIcon={
-                    <View style={styles.checkedCircleContainer}>
-                    <View style={styles.checkedOuterCircle}>
-                    <View style={styles.checkedInnerCircle} />
-                    </View>
-                    </View>
-                    }
-                uncheckedIcon={<View style={styles.uncheckedCircle} />}
-                containerStyle={[styles.checkboxContainer, isChecked && { backgroundColor: '#A2E6A1' }]}
-
-            />
-            <CheckBox
-                title={<View>
-                    <Text style={styles.tituloform}>Terreno amplo</Text>
-                    <Text style={styles.subtituloform}>Quintal ou terreno com mais de 3 metros quadrados</Text>
-                    </View>}
-                checked={isChecked2}
-                onPress={toggleCheckBox2}
-                checkedIcon={
-                    <View style={styles.checkedCircleContainer}>
-                    <View style={styles.checkedOuterCircle}>
-                    <View style={styles.checkedInnerCircle} />
-                    </View>
-                    </View>
-                    }
-                uncheckedIcon={<View style={styles.uncheckedCircle} />}
-                containerStyle={[styles.checkboxContainer, isChecked2 && { backgroundColor: '#A2E6A1' }]}
-
-            />
-            </View>
-            <View style={styles.botao}>
-                <Button3 labelButton={'Próximo'} onPress={() => navigation.navigate('Perguntas2')}/>
-            </View>
-        </View>
-    );
+  const toggleCheckBox1 = () => {
+    setChecked(true);
+    setChecked2(false);
   };
+
+  const toggleCheckBox2 = () => {
+    setChecked(false);
+    setChecked2(true);
+  };
+
+  const saveAnswersToFirestore = async () => {
+    try {
+        const userId = await AsyncStorage.getItem('userId');
+        let resposta = '';
+    
+        if (isChecked) {
+          resposta = 'Ambiente pequeno';
+        } else if (isChecked2) {
+          resposta = 'Terreno amplo';
+        }
+    
+        if (resposta !== '') {
+              await setDoc(doc(ref, userId), { ambiente: resposta}); 
+              console.log('Resposta atualizada com sucesso no Firestore');
+            
+          } 
+          
+         else {
+          console.error('Nenhuma resposta selecionada.');
+        }
+    
+        // Navega para a próxima tela após a atualização
+        navigation.navigate('Perguntas2');
+      } catch (error) {
+        console.error('Erro ao salvar/atualizar resposta no Firestore:', error);
+      }
+    };
+
+  return (
+    <View style={styles.container}>
+      <View style={styles.containerdecima}>
+        <Text style={styles.titulozao}>Pergunta 1 de 4</Text>
+        <View style={styles.barrasalinhadas}>
+          <View style={styles.divbarra}>
+            <View style={styles.barra} />
+          </View>
+          <View style={styles.divbarrinha}>
+            <View style={styles.barrinha} />
+          </View>
+        </View>
+      </View>
+      <View style={styles.containerdoscheckbox}>
+        <View style={styles.divtexto}>
+          <Text style={styles.text}>Que tipo de ambiente você possui para o plantio?</Text>
+        </View>
+        <CheckBox
+          title={<View>
+            <Text style={styles.tituloform}>Ambiente pequeno</Text>
+            <Text style={styles.subtituloform}>Plantio em vasos casas e apartamentos em locais com luz do sol</Text>
+          </View>}
+          checked={isChecked}
+          onPress={toggleCheckBox1}
+          checkedIcon={<View style={styles.checkedCircleContainer}>
+            <View style={styles.checkedOuterCircle}>
+              <View style={styles.checkedInnerCircle} />
+            </View>
+          </View>}
+          uncheckedIcon={<View style={styles.uncheckedCircle} />}
+          containerStyle={[styles.checkboxContainer, isChecked && { backgroundColor: '#A2E6A1' }]}
+        />
+        <CheckBox
+          title={<View>
+            <Text style={styles.tituloform}>Terreno amplo</Text>
+            <Text style={styles.subtituloform}>Quintal ou terreno com mais de 3 metros quadrados</Text>
+          </View>}
+          checked={isChecked2}
+          onPress={toggleCheckBox2}
+          checkedIcon={<View style={styles.checkedCircleContainer}>
+            <View style={styles.checkedOuterCircle}>
+              <View style={styles.checkedInnerCircle} />
+            </View>
+          </View>}
+          uncheckedIcon={<View style={styles.uncheckedCircle} />}
+          containerStyle={[styles.checkboxContainer, isChecked2 && { backgroundColor: '#A2E6A1' }]}
+        />
+      </View>
+      <View style={styles.botao}>
+        <Button3 labelButton={'Próximo'} onPress={saveAnswersToFirestore} />
+      </View>
+    </View>
+  );
+}
   
   const styles = StyleSheet.create({
     container: {
@@ -202,5 +226,4 @@ export default function Perguntas({navigation}) {
         bottom: 0,
         marginBottom: 50,
     }
-  });
-  
+  })
