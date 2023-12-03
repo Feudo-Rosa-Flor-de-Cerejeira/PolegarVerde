@@ -3,12 +3,14 @@ import { View, Text, StyleSheet } from 'react-native';
 import { CheckBox } from 'react-native-elements';
 import Button3 from '../../../assets/components/Button3.jsx';
 import Button4 from '../../../assets/components/Button4.jsx';
-
+import { addDoc, collection, getDocs, setDoc, docId, doc, updateDoc } from 'firebase/firestore';
+import { db } from '../../../Services/firebaseConfig.js';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function Perguntas4({navigation}) {
     const [isChecked, setChecked] = useState(false);
     const [isChecked2, setChecked2] = useState(false);
-  
+    const ref = collection(db, 'respostas');
     const toggleCheckBox1 = () => {
         setChecked(true);
         setChecked2(false);
@@ -18,6 +20,26 @@ export default function Perguntas4({navigation}) {
         setChecked(false);
         setChecked2(true);
       };
+      const handleNextButtonPress4 = async () => {
+        const userId = await AsyncStorage.getItem('userId');
+        let resposta = '';
+        if (isChecked) {
+          resposta = 'Sim, teria';
+        } else if (isChecked2) {
+          resposta = 'Não, não teria';
+        } 
+        if (resposta !== '') {
+            try {
+                await updateDoc(doc(ref, userId), { condição: resposta});
+                console.log('Novo campo adicionado com sucesso no Firestore');
+            } catch (error) {
+              console.error('Erro ao salvar resposta do formulário 2:', error);
+            }
+          } else {
+            console.error('Nenhuma resposta selecionada.');
+          }
+          navigation.navigate('GuiaVerde');
+        }
     return (
         <View style={styles.container}>
             <View style={styles.containerdecima}>
@@ -75,7 +97,7 @@ export default function Perguntas4({navigation}) {
             <View style={styles.botao}>
                 <View style={styles.caixabotao}>
                 <Button4 onPress={() => navigation.navigate('Perguntas3')}/>
-                <Button3 labelButton={'Finalizar'} onPress={() => navigation.navigate('GuiaVerde')}/>
+                <Button3 labelButton={'Finalizar'} onPress={handleNextButtonPress4}/>
                 </View>
             </View>
         </View>
@@ -209,4 +231,3 @@ export default function Perguntas4({navigation}) {
 
     },
   });
-  

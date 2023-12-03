@@ -4,6 +4,7 @@ import ExitButton from '../../../assets/components/ExitButton.jsx';
 import Button2 from '../../../assets/components/Button2.jsx';
 import {createUserWithEmailAndPassword, updateProfile} from "firebase/auth";
 import { auth } from '../../../Services/firebaseConfig.js';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function Registro({navigation}) {    
     const [PrimeiroNome, setPrimeiroNome] = useState('');
@@ -22,7 +23,8 @@ export default function Registro({navigation}) {
             updateProfile(user, { displayName: nomeCompleto }).then(() => {
               console.log('DisplayName configurado com sucesso:', nomeCompleto);
             });
-    
+            AsyncStorage.setItem("userId", user.uid);
+
             console.log('Novo usuário cadastrado:', user);
             // Você pode redirecionar para a próxima tela ou realizar outras ações após o login bem-sucedido
             navigation.navigate('Perguntas');

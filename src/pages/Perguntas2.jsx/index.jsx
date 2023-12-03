@@ -3,21 +3,47 @@ import { View, Text, StyleSheet } from 'react-native';
 import { CheckBox } from 'react-native-elements';
 import Button3 from '../../../assets/components/Button3.jsx';
 import Button4 from '../../../assets/components/Button4.jsx';
+import { addDoc, collection, getDocs, setDoc, docId, doc, updateDoc } from 'firebase/firestore';
+import { db } from '../../../Services/firebaseConfig.js';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
-
-export default function Perguntas2({navigation}) {
+export default function Perguntas2({ navigation }) {
     const [isChecked, setChecked] = useState(false);
     const [isChecked2, setChecked2] = useState(false);
-  
+    const ref = collection(db, 'respostas'); 
     const toggleCheckBox1 = () => {
-        setChecked(true);
-        setChecked2(false);
-      };
-    
-      const toggleCheckBox2 = () => {
-        setChecked(false);
-        setChecked2(true);
-      };
+      setChecked(true);
+      setChecked2(false);
+    };
+  
+    const toggleCheckBox2 = () => {
+      setChecked(false);
+      setChecked2(true);
+    };
+  
+    const handleNextButtonPress = async () => {
+      const userId = await AsyncStorage.getItem('userId');
+      let resposta = '';
+  
+      if (isChecked) {
+        resposta = 'Arenoso';
+      } else if (isChecked2) {
+        resposta = 'Argiloso';
+      }
+  
+      if (resposta !== '') {
+        try {
+            // Atualiza o documento existente adicionando um novo campo
+            await updateDoc(doc(ref,userId), { solo: resposta});
+            console.log('Novo campo adicionado com sucesso no Firestore');
+        } catch (error) {
+          console.error('Erro ao salvar resposta do formulário 2:', error);
+        }
+      } else {
+        console.error('Nenhuma resposta selecionada.');
+      }
+      navigation.navigate('Perguntas3');
+    };
     return (
         <View style={styles.container}>
             <View style={styles.containerdecima}>
@@ -77,7 +103,7 @@ export default function Perguntas2({navigation}) {
             <View style={styles.botao}>
                 <View style={styles.caixabotao}>
                 <Button4 onPress={() => navigation.navigate('Perguntas')}/>
-                <Button3 labelButton={'Próximo'} onPress={() => navigation.navigate('Perguntas3')}/>
+                <Button3 labelButton={'Próximo'} onPress={handleNextButtonPress} /> 
                 </View>
             </View>
         </View>
@@ -211,5 +237,4 @@ export default function Perguntas2({navigation}) {
         gap: 64,
 
     },
-  });
-  
+  })
