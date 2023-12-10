@@ -51,12 +51,12 @@ export default function TelaNordeste({navigation}) {
                         </View>
                         <View style={styles.plantapequena}>
                             <View style={[styles.figura, {backgroundColor: "#7D7D7D"}]}>
-                                <Image style={styles.figuratopo} source={require('../../../assets/images/amendoim1.png')}/>
+                                <Image style={styles.figuratopo} source={require('../../../assets//images/batatadoce1.png')}/>
                             </View>
                             <View style={styles.nomefavorito}>
                                 <View style={styles.nome}>
-                                    <Text style={styles.nomeplanta}>Mandioca</Text>
-                                    <Text style={styles.nomecientifico}>Manihot esculenta</Text>
+                                    <Text style={styles.nomeplanta}>Batata Doce</Text>
+                                    <Text style={styles.nomecientifico}>Ipomoea batatas</Text>
                                 </View>
                                 <Image source={require('../../../assets/images/core.png')}/>
                             </View>
@@ -65,24 +65,24 @@ export default function TelaNordeste({navigation}) {
                     <View style={styles.colunaplantas}>
                     <View style={styles.plantapequena}>
                             <View style={[styles.figura, {backgroundColor: "#7D7D7D"}]}>
-                                <Image style={styles.figuratopo} source={require('../../../assets/images/milho1.png')}/>
+                                <Image style={styles.figuratopo} source={require('../../../assets/images/couveflor1.png')}/>
                             </View>
                             <View style={styles.nomefavorito}>
                                 <View style={styles.nome}>
-                                    <Text style={styles.nomeplanta}>Milho</Text>
-                                    <Text style={styles.nomecientifico}>Zea mays</Text>
+                                    <Text style={styles.nomeplanta}>Couve-flor</Text>
+                                    <Text style={styles.nomecientifico}>Brassica oleracea var. botrytis</Text>
                                 </View>
                                 <Image source={require('../../../assets/images/core.png')}/>
                             </View>
                         </View>
                         <View style={styles.plantapequena}>
                             <View style={[styles.figura, {backgroundColor: "#7D7D7D"}]}>
-                                <Image style={styles.figuratopo} source={require('../../../assets/images/milho1.png')}/>
+                                <Image style={styles.figuratopo} source={require('../../../assets/images/couveflor1.png')}/>
                             </View>
                             <View style={styles.nomefavorito}>
                                 <View style={styles.nome}>
-                                    <Text style={styles.nomeplanta}>Mandioca</Text>
-                                    <Text style={styles.nomecientifico}>Manihot esculenta</Text>
+                                    <Text style={styles.nomeplanta}>Couve-flor</Text>
+                                    <Text style={styles.nomecientifico}>Brassica oleracea var. botrytis</Text>
                                 </View>
                                 <Image source={require('../../../assets/images/core.png')}/>
                             </View>
