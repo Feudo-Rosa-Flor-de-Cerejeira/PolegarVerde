@@ -1,12 +1,41 @@
 import { Text, View, StyleSheet, Image, TouchableOpacity, ScrollView,} from "react-native";
 import ExitButton from "../../../assets/components/ExitButton.jsx";
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
+import { db } from '../../../Services/firebaseConfig';
+import { collection, getDocs,query, where} from 'firebase/firestore';
+
 //import { titulo, subtitulo, descricao, imagem, Tsolo,  } from "../../data/data.js";
 
-export default function TelaModelo({ navigation }) {
+export default function TelaModelo({ navigation,route }) {
+  const {Nome} =  route.params
   const [isExpandedDetalhe, setIsExpandedDetalhe] = useState(false);
   const [isExpandedComoCultivar, setIsExpandedComoCultivar] = useState(false);
   const [isExpandedDuvidas, setIsExpandedDuvidas] = useState(false);
+  const [dataPlantas,setDataPlantas] = useState([])
+  const plantasCollection = collection(db, 'Plantas');
+  
+  const buscarPlantasMorango = async () => {
+    try {
+      const q = query(plantasCollection, where('Nome', '==', `${Nome}`));
+      const querySnapshot = await getDocs(q);
+  
+      // Iterar sobre os documentos encontrados
+      querySnapshot.forEach((doc) => {
+        //console.log(doc.id, ' => ', doc.data());
+        setDataPlantas(doc.data())
+      });
+    } catch (error) {
+      console.error('Erro ao buscar plantas:', error);
+    }
+  };
+  
+  useEffect(()=>{
+    buscarPlantasMorango();
+    console.log(dataPlantas)
+  },[])
+  useEffect(()=>{
+    console.log(dataPlantas.Nome)
+  },[dataPlantas])
 
   const toggleAccordion = (toggleId) => {
     switch (toggleId) {
@@ -32,13 +61,13 @@ export default function TelaModelo({ navigation }) {
         </View>
         <View style={styles.quadradocolorido} />
         <Image
-          source={require("../../../assets/images/abacate.png")}
+          src={`${dataPlantas.URL}`}
           style={styles.imagem}
         />
       </View>
       <View style={styles.containerinfo}>
         <View style={styles.containerTexto}>
-          <Text style={styles.titulo}>Abacate</Text>
+          <Text style={styles.titulo}>{dataPlantas.Nome}</Text>
           <Text style={styles.subtitulo}>Persea americana</Text>
           <Text style={styles.descricao}>
             Rico em nutrientes, o abacate é conhecido por suas gorduras

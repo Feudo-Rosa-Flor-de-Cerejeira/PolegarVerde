@@ -1,4 +1,4 @@
-import {StyleSheet, View, Image, useWindowDimensions, Text} from 'react-native';
+import {StyleSheet, View, Image, useWindowDimensions, Text,TouchableOpacity} from 'react-native';
 import React, {useState, useEffect, useRef} from 'react';
 import Animated, {
   useSharedValue,
@@ -8,8 +8,12 @@ import Animated, {
   useAnimatedRef,
 } from 'react-native-reanimated';
 import Pagination from './Pagination';
+import { useNavigation } from '@react-navigation/native';
+
 const CustomImageCarousalRectan = ({data, autoPlay, pagination}) => {
   const scrollViewRef = useAnimatedRef(null);
+  const navigation = useNavigation()
+  
   const [newData] = useState([
     {key: 'spacer-left'},
     ...data,
@@ -56,10 +60,12 @@ const CustomImageCarousalRectan = ({data, autoPlay, pagination}) => {
           }
           return (
             <View style={{width: SIZE}} key={index}>
+              <TouchableOpacity onPress={() => navigation.navigate(`Tela${item.Nome}`, { Nome: item.Nome })}>
               <Animated.View style={[styles.imageContainer, style]}>
                 <Image src={`${item.URL}`} style={styles.image} />
               </Animated.View>
               <Text style={styles.textTitulo}>{item.Nome}</Text>
+              </TouchableOpacity>
             </View>
           );
         })}

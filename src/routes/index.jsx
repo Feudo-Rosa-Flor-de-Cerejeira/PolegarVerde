@@ -17,6 +17,7 @@ import GuiaVerde from '../pages/GuiaVerde/GuiaVerde.js';
 import Teste from '../pages/GuiaVerde/Teste.js';
 import TelaModelo from '../pages/TelaModelo';
 import { NavigationContainer } from '@react-navigation/native';
+import CustomImageCarousal from '../../assets/components/CustomImageCarousalSquare';
 
 const Stack = createNativeStackNavigator();
 
@@ -24,7 +25,7 @@ export default function Routes() {
   return (
       <Stack.Navigator screenOptions={{
         headerShown: false,
-      }} initialRouteName='TelaModelo'>
+      }} initialRouteName='Rota'>
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="Login2" component={Login2} />
@@ -41,6 +42,8 @@ export default function Routes() {
         <Stack.Screen name="GuiaVerde" component={GuiaVerde} />
         <Stack.Screen name="TelaModelo" component={TelaModelo} />
         <Stack.Screen name="Teste" component={Teste} />
+        <Stack.Screen name="Carousal" component={CustomImageCarousal} />
+        
       </Stack.Navigator>
       
   );

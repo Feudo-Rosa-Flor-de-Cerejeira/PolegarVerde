@@ -1,9 +1,11 @@
 import { View, Text,StyleSheet,StatusBar,Platform } from 'react-native'
 import React from 'react'
 
-const Teste = () => {
+const Teste = ({route}) => {
+  const {Nome} = route.params
   return (
     <View style={styles.container}>
+      <Text>{Nome}</Text>
       <Text>Teste</Text>
     </View>
   )

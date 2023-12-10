@@ -6,6 +6,7 @@ import {
     View,
     Text,
     ScrollView,
+    TouchableOpacity
   } from 'react-native';
   import React, { useEffect,useState} from 'react';
   import CustomImageCarousalSquare from '../../../assets/components/CustomImageCarousalSquare';
@@ -15,7 +16,7 @@ import {
   import { db } from '../../../Services/firebaseConfig';
   import { collection, getDocs } from 'firebase/firestore';
 
-const GuiaVerde = () => {
+const GuiaVerde = ({navigation}) => {
   const [mostrarComponente, setMostrarComponente] = useState(false);
   const [dataDb,setData] = useState([])
   const [dataAmb,setDataAmb] = useState([])

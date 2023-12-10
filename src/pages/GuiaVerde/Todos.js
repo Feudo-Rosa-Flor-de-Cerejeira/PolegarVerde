@@ -9,13 +9,16 @@ import {
   FlatList,
   TextInput,
   Image,
+  TouchableOpacity
 } from "react-native";
 import React, { useCallback, useEffect, useState } from "react";
 import { db } from "../../../Services/firebaseConfig";
 import { collection, getDocs } from "firebase/firestore";
-import { Ionicons } from "@expo/vector-icons";
+import { Ionicons } from "@expo/vector-icons"
+import { useNavigation } from '@react-navigation/native';
 
 const Todos = () => {
+  const navigation = useNavigation()
   const [mostrarComponente, setMostrarComponente] = useState(true);
   const [dataDb, setData] = useState([]);
   const [dataAlf, setAlf] = useState([]);
@@ -49,6 +52,7 @@ const Todos = () => {
     <View style={styles.container}>
       {mostrarComponente && (
         <View style={styles.container2}>
+         
           <View style={styles.pesquisa}>
           <Ionicons
                 style={styles.lupa}
@@ -67,7 +71,9 @@ const Todos = () => {
             data={filterData()}
             keyExtractor={(item) => item.id}
             renderItem={({ item }) => (
+              <TouchableOpacity onPress={() => navigation.navigate('TelaModelo', { Nome: item.Nome })}>
               <View style={styles.lista}>
+                
                 <Image src={`${item.URL}`} style={styles.image} />
                 <View style={styles.lista1}>
                   <Text style={styles.textTitulo}>{item.Nome}</Text>
@@ -79,9 +85,12 @@ const Todos = () => {
                   size={25}
                   style={styles.icon}
                 ></Ionicons>
+                
               </View>
+              </TouchableOpacity>
             )}
           />
+         
         </View>
         
       )}

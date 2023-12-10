@@ -1,4 +1,4 @@
-import {StyleSheet, View, Image, useWindowDimensions, Text} from 'react-native';
+import {StyleSheet, View, Image, useWindowDimensions, Text, TouchableOpacity} from 'react-native';
 import React, {useState,useEffect} from 'react';
 import Animated, {
   useSharedValue,
@@ -8,9 +8,11 @@ import Animated, {
   useAnimatedRef,
 } from 'react-native-reanimated';
 import Pagination from './Pagination';
+import { useNavigation } from '@react-navigation/native';
 
 
-const CustomImageCarousal = ({data,pagination,navigation}) => {
+const CustomImageCarousal = ({data,pagination}) => {
+  const navigation = useNavigation()
   const [dataDb,setData] = useState(data)
   const [newData,setNewData] = useState([{key: 'spacer-left'},
   ...data,
@@ -58,12 +60,14 @@ const CustomImageCarousal = ({data,pagination,navigation}) => {
           }
           return (
             <View style={{width: SIZE}} key={index}>
-              <Animated.View onPress={() => navigation.navigate("TelaNorte")} style={[styles.imageContainer, style]}>
+              
+              <TouchableOpacity onPress={() => navigation.navigate('TelaModelo', { Nome: item.Nome })}>
+              <Animated.View  style={[styles.imageContainer, style]}>
                 <Image src={`${item.URL}`} style={styles.image} />
               </Animated.View>
               <Text style={styles.textTitulo}>{item.Nome}</Text>
               <Text style={styles.textSub}>{item.Subtitulo}</Text>
-             
+              </TouchableOpacity>
             </View>
           );
         })}
