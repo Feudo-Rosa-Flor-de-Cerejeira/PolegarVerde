@@ -60,6 +60,7 @@ const CustomImageCarousalRectan = ({data, autoPlay, pagination}) => {
           }
           return (
             <View style={{width: SIZE}} key={index}>
+              
               <TouchableOpacity onPress={() => navigation.navigate(`Tela${item.Nome}`, { Nome: item.Nome })}>
               <Animated.View style={[styles.imageContainer, style]}>
                 <Image src={`${item.URL}`} style={styles.image} />
