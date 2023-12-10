@@ -12,6 +12,9 @@ import Perguntas3 from '../pages/Perguntas3.jsx';
 import Perguntas4 from '../pages/Perguntas4.jsx';
 import TelaNordeste from '../pages/TelaNordeste/index.jsx';
 import TelaNorte from '../pages/TelaNorte/index.jsx';
+import TelaCentroOeste from '../pages/TelaCentroOeste';
+import TelaSudeste from '../pages/TelaSudeste';
+import TelaSul from '../pages/TelaSul';
 import Todos from '../pages/GuiaVerde/Todos.js';
 import GuiaVerde from '../pages/GuiaVerde/GuiaVerde.js';
 import Teste from '../pages/GuiaVerde/Teste.js';
@@ -24,7 +27,7 @@ export default function Routes() {
   return (
       <Stack.Navigator screenOptions={{
         headerShown: false,
-      }} initialRouteName='TelaModelo'>
+      }} initialRouteName='Rota'>
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="Login2" component={Login2} />
@@ -36,6 +39,9 @@ export default function Routes() {
         <Stack.Screen name="Perguntas4" component={Perguntas4} />
         <Stack.Screen name="TelaNorte" component={TelaNorte} />
         <Stack.Screen name="TelaNordeste" component={TelaNordeste} />
+        <Stack.Screen name="TelaCentroOeste" component={TelaCentroOeste} />
+        <Stack.Screen name="TelaSudeste" component={TelaSudeste} />
+        <Stack.Screen name="TelaSul" component={TelaSul} />
         <Stack.Screen name="Onboard" component={Onboard} />
         <Stack.Screen name="Todos" component={Todos} />
         <Stack.Screen name="GuiaVerde" component={GuiaVerde} />
