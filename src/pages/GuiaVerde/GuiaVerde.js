@@ -40,7 +40,7 @@ const GuiaVerde = () => {
       const alldataFer = dataFer.docs.map(val => ({...val.data(),id:val.id}))
       setDataFer(alldataFer)
     }
-    const getDataAmb = async () => {
+    const getDataAmb =async () => {
       const refAmb = collection(db,'Ambiente')
       const dataAmb= await getDocs(refAmb)
       const alldataAmb = dataAmb.docs.map(val => ({...val.data(),id:val.id}))
@@ -56,9 +56,9 @@ const GuiaVerde = () => {
   useEffect(()=>{
     if (dataAmb.length >1) {
       setMostrarComponente(true);
-      console.log(dataReg)
+      console.log("dataReg")
     }
-  },[dataDb,dataAmb,dataReg])
+  },[dataAmb])
 
   return (
     

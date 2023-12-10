@@ -10,7 +10,7 @@ import Animated, {
 import Pagination from './Pagination';
 
 
-const CustomImageCarousal = ({data,pagination}) => {
+const CustomImageCarousal = ({data,pagination,navigation}) => {
   const [dataDb,setData] = useState(data)
   const [newData,setNewData] = useState([{key: 'spacer-left'},
   ...data,
@@ -58,7 +58,7 @@ const CustomImageCarousal = ({data,pagination}) => {
           }
           return (
             <View style={{width: SIZE}} key={index}>
-              <Animated.View style={[styles.imageContainer, style]}>
+              <Animated.View onPress={() => navigation.navigate("TelaNorte")} style={[styles.imageContainer, style]}>
                 <Image src={`${item.URL}`} style={styles.image} />
               </Animated.View>
               <Text style={styles.textTitulo}>{item.Nome}</Text>

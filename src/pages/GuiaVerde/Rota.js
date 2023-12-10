@@ -13,7 +13,7 @@ import { Ionicons } from "@expo/vector-icons";
 const Rota = () => {
 
   const BottomTab = createBottomTabNavigator();
-  const BottomNavigator = () => (
+  return (
     <BottomTab.Navigator screenOptions={{ 
       headerShown: false,
       tabBarActiveTintColor: '#071a0e',
@@ -74,9 +74,6 @@ const Rota = () => {
         ),
       }}/>
     </BottomTab.Navigator>
-  );
-  return (
-       <BottomNavigator></BottomNavigator>
   );
 };
 

@@ -7,44 +7,44 @@ export default function TelaNordeste({navigation}) {
             <ScrollView>
             <View style={styles.corcontainer}>
                 <View style={styles.xis}>
-                    <BackButton onPress={() => navigation.navigate("GuiaVerde")} />
+                    <BackButton onPress={() => navigation.navigate("Rota")} />
                 </View>
-                <View style={styles.castanha}>
-                    <Image source={require('../../../assets/images/castanha.png')}/>
+                <View style={styles.caju}>
+                    <Image source={require('../../../assets/images/caju.png')}/>
                 </View>
             </View>
             <View style={styles.textoapresentacao}>
-                <Text style={styles.titulo}>Norte</Text>
+                <Text style={styles.titulo}>Nordeste</Text>
                 <Text style={styles.descricao}>
-                A região Norte do Brasil possui um clima predominantemente equatorial, caracterizado por temperaturas altas e chuvas frequentes ao longo do ano. Esta região é coberta pela maior parte da Floresta Amazônica, apresentando solos férteis e ideais para o cultivo de uma vasta gama de plantas tropicais. A seguir, confira algumas delas.
+                A região Nordeste do Brasil tem um clima predominantemente semiárido no interior e tropical úmido na costa, com altas temperaturas e chuvas irregulares. A agricultura é desafiadora devido à variabilidade das chuvas, sendo o cultivo de plantas resistentes à seca, como cactos e palma, comuns no interior, enquanto nas áreas litorâneas, culturas como cana-de-açúcar e frutas tropicais prosperam devido às condições mais úmidas.
                 </Text>
             </View>
             <View style={styles.principal}>
                 <View style={styles.plantaprincipal}>
                     <View style={styles.imagemprincipal}>
-                        <Image source={require('../../../assets/images/mandioca.png')}/>
+                        <Image source={require('../../../assets/images/coco1.png')}/>
                     </View>
                     <View style={styles.textos}>
                         <View style={styles.nomefavorito}>
                             <View style={styles.nome}>
-                                <Text style={styles.nomeplanta}>Mandioca</Text>
-                                <Text style={styles.nomecientifico}>Manihot esculenta</Text>
+                                <Text style={styles.nomeplanta}>Coco</Text>
+                                <Text style={styles.nomecientifico}>Cocos nucifera</Text>
                             </View>
                             <Image source={require('../../../assets/images/core.png')}/>
                         </View>
-                        <Text style={styles.descricaoplantaprincipal}>A mandioca, também conhecida como aipim ou macaxeira, é uma planta de raiz comestível amplamente cultivada em regiões tropicais. Suas raízes tuberosas são ricas em amido e são uma fonte importante de carboidratos na dieta de muitas comunidades ao redor do mundo.</Text>
+                        <Text style={styles.descricaoplantaprincipal}>O coco é uma fruta tropical originária da palmeira Cocos nucifera. Ele tem uma casca dura e fibrosa, com uma camada interna comestível branca e suculenta, conhecida como polpa de coco, que é rica em nutrientes e água. O coco é amplamente utilizado em diversas culinárias ao redor do mundo, tanto na forma de polpa como em produtos derivados, como leite de coco, óleo de coco, coco ralado e água de coco. Além disso, suas fibras são usadas em diversas aplicações, e a casca é usada como combustível ou na fabricação de objetos artesanais. O coco é conhecido por seus benefícios nutricionais e versatilidade.</Text>
                     </View>
                 </View>
                 <View style={styles.plantabaixa}>
                     <View style={styles.colunaplantas}>
                         <View style={styles.plantapequena}>
                             <View style={[styles.figura, {backgroundColor: "#7D7D7D"}]}>
-                                <Image style={styles.figuratopo} source={require('../../../assets/images/amendoim1.png')}/>
+                                <Image style={styles.figuratopo} source={require('../../../assets/images/batatadoce1.png')}/>
                             </View>
                             <View style={styles.nomefavorito}>
                                 <View style={styles.nome}>
-                                    <Text style={styles.nomeplanta}>Mandioca</Text>
-                                    <Text style={styles.nomecientifico}>Manihot esculenta</Text>
+                                    <Text style={styles.nomeplanta}>Batata Doce</Text>
+                                    <Text style={styles.nomecientifico}>Ipomoea batatas</Text>
                                 </View>
                                 <Image source={require('../../../assets/images/core.png')}/>
                             </View>
@@ -101,7 +101,7 @@ const styles = StyleSheet.create({
     corcontainer: {
         display: "flex",
         flexDirection: "row",
-        backgroundColor: "#CE3B06",
+        backgroundColor: "#FFD600",
         borderRadius: 24,
         height: 170,
         width: 394,
@@ -111,9 +111,10 @@ const styles = StyleSheet.create({
         marginLeft: 16,
         marginTop: 51,
     },
-    castanha: {
-        width: 240,
-        height: 238.849,
+    caju: {
+        position: "absolute",
+        marginTop: 23,
+        marginLeft: 180,
     },
     textoapresentacao: {
         marginLeft: 24,

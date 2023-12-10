@@ -7,7 +7,7 @@ export default function TelaNorte({navigation}) {
             <ScrollView>
             <View style={styles.corcontainer}>
                 <View style={styles.xis}>
-                    <BackButton onPress={() => navigation.navigate("GuiaVerde")} />
+                    <BackButton onPress={() => navigation.navigate("Rota")} />
                 </View>
                 <View style={styles.castanha}>
                     <Image source={require('../../../assets/images/castanha.png')}/>

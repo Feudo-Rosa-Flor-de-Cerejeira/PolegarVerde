@@ -10,7 +10,7 @@ import {
   TextInput,
   Image,
 } from "react-native";
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { db } from "../../../Services/firebaseConfig";
 import { collection, getDocs } from "firebase/firestore";
 import { Ionicons } from "@expo/vector-icons";
@@ -21,20 +21,20 @@ const Todos = () => {
   const [dataAlf, setAlf] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
 
-  const getData = async () => {
-    const ref = collection(db, "BancoTeste");
+  const getData = useCallback(async () => {
+    const ref = collection(db, "Plantas");
     const dataFire = await getDocs(ref);
     const alldata = dataFire.docs.map((val) => ({
       ...val.data(),
       id: val.id,
     }));
     setData(dataFire.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-  };
+  },[]);
 
   useEffect(() => {
     getData();
     console.log(dataAlf);
-  }, []);
+  }, [getData]);
 
   //setAlf(dataDb.sort((a, b) => a.Nome.localeCompare(b.nome)));
 
@@ -48,7 +48,7 @@ const Todos = () => {
   return (
     <View style={styles.container}>
       {mostrarComponente && (
-        <View>
+        <View style={styles.container2}>
           <View style={styles.pesquisa}>
           <Ionicons
                 style={styles.lupa}
@@ -71,7 +71,7 @@ const Todos = () => {
                 <Image src={`${item.URL}`} style={styles.image} />
                 <View style={styles.lista1}>
                   <Text style={styles.textTitulo}>{item.Nome}</Text>
-                  <Text style={styles.textSub}>{item.Subtitulo}</Text>
+                  <Text style={styles.textSub}>{item.NomeAlternativos}</Text>
                 </View>
                 <Ionicons
                   name="heart-outline"
@@ -97,6 +97,10 @@ const styles = StyleSheet.create({
     paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
     backgroundColor: "white",
     overflow: "visible",
+    paddingVertical :50,
+  },
+  container2 :{
+    paddingBottom:50,
   },
   pesquisa: {
     flexDirection: "row",
@@ -119,11 +123,14 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     paddingLeft: 20,
     paddingTop: 10,
+    backgroundColor: "white",
+   
   },
   lista1: {
     flex: 1,
     flexDirection: "column",
     paddingLeft: 20,
+    
   },
   item: {
     padding: 10,
