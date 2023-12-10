@@ -1,7 +1,7 @@
 import { Text, View, StyleSheet, Image, ScrollView } from "react-native";
 import BackButton from "../../../assets/components/BackButton.jsx";
 
-export default function TelaNordeste({navigation}) {
+export default function TelaCentroOeste({navigation}) {
     return (
         <View style={styles.container}>
             <ScrollView>
@@ -9,42 +9,42 @@ export default function TelaNordeste({navigation}) {
                 <View style={styles.xis}>
                     <BackButton onPress={() => navigation.navigate("Rota")} />
                 </View>
-                <View style={styles.caju}>
-                    <Image source={require('../../../assets/images/caju.png')}/>
+                <View style={styles.pequi}>
+                    <Image source={require('../../../assets/images/pequi.png')}/>
                 </View>
             </View>
             <View style={styles.textoapresentacao}>
-                <Text style={styles.titulo}>Nordeste</Text>
+                <Text style={styles.titulo}>Centro-oeste</Text>
                 <Text style={styles.descricao}>
-                A região Nordeste do Brasil tem um clima predominantemente semiárido no interior e tropical úmido na costa, com altas temperaturas e chuvas irregulares. A agricultura é desafiadora devido à variabilidade das chuvas, sendo o cultivo de plantas resistentes à seca, como cactos e palma, comuns no interior, enquanto nas áreas litorâneas, culturas como cana-de-açúcar e frutas tropicais prosperam devido às condições mais úmidas.
+                A região Centro-Oeste do Brasil possui um clima tropical sazonal, com uma estação seca no inverno e uma estação chuvosa no verão. Possui solos férteis, especialmente no bioma do Cerrado, favorecendo a produção agrícola.
                 </Text>
             </View>
             <View style={styles.principal}>
                 <View style={styles.plantaprincipal}>
                     <View style={styles.imagemprincipal}>
-                        <Image source={require('../../../assets/images/coco1.png')}/>
+                        <Image source={require('../../../assets/images/milho11.png')}/>
                     </View>
                     <View style={styles.textos}>
                         <View style={styles.nomefavorito}>
                             <View style={styles.nome}>
-                                <Text style={styles.nomeplanta}>Coco</Text>
-                                <Text style={styles.nomecientifico}>Cocos nucifera</Text>
+                                <Text style={styles.nomeplanta}>Milho</Text>
+                                <Text style={styles.nomecientifico}>Zea mays</Text>
                             </View>
                             <Image source={require('../../../assets/images/core.png')}/>
                         </View>
-                        <Text style={styles.descricaoplantaprincipal}>O coco é uma fruta tropical originária da palmeira Cocos nucifera. Ele tem uma casca dura e fibrosa, com uma camada interna comestível branca e suculenta, conhecida como polpa de coco, que é rica em nutrientes e água. O coco é amplamente utilizado em diversas culinárias ao redor do mundo, tanto na forma de polpa como em produtos derivados, como leite de coco, óleo de coco, coco ralado e água de coco. Além disso, suas fibras são usadas em diversas aplicações, e a casca é usada como combustível ou na fabricação de objetos artesanais. O coco é conhecido por seus benefícios nutricionais e versatilidade.</Text>
+                        <Text style={styles.descricaoplantaprincipal}>É uma das culturas mais importantes globalmente e possui diversas variedades, desde grãos amarelos e doces até grãos usados para a produção de farinha e ração animal. O milho é uma fonte rica de carboidratos, fibras e várias vitaminas e minerais. É utilizado para fazer uma ampla variedade de produtos, como alimentos, bebidas, óleos e até biocombustíveis. Além disso, partes da planta, como a palha e o sabugo, também são utilizadas em várias aplicações, desde a alimentação animal até a produção de papel e combustíveis.</Text>
                     </View>
                 </View>
                 <View style={styles.plantabaixa}>
                     <View style={styles.colunaplantas}>
                         <View style={styles.plantapequena}>
                             <View style={[styles.figura, {backgroundColor: "#7D7D7D"}]}>
-                                <Image style={styles.figuratopo} source={require('../../../assets/images/batatadoce1.png')}/>
+                                <Image style={styles.figuratopo} source={require('../../../assets/images/amendoim1.png')}/>
                             </View>
                             <View style={styles.nomefavorito}>
                                 <View style={styles.nome}>
-                                    <Text style={styles.nomeplanta}>Batata Doce</Text>
-                                    <Text style={styles.nomecientifico}>Ipomoea batatas</Text>
+                                    <Text style={styles.nomeplanta}>Amendoim</Text>
+                                    <Text style={styles.nomecientifico}>Arachis hypogaea</Text>
                                 </View>
                                 <Image source={require('../../../assets/images/core.png')}/>
                             </View>
@@ -65,12 +65,12 @@ export default function TelaNordeste({navigation}) {
                     <View style={styles.colunaplantas}>
                     <View style={styles.plantapequena}>
                             <View style={[styles.figura, {backgroundColor: "#7D7D7D"}]}>
-                                <Image style={styles.figuratopo} source={require('../../../assets/images/couveflor1.png')}/>
+                                <Image style={styles.figuratopo} source={require('../../../assets/images/batatadoce1.png')}/>
                             </View>
                             <View style={styles.nomefavorito}>
                                 <View style={styles.nome}>
-                                    <Text style={styles.nomeplanta}>Couve-flor</Text>
-                                    <Text style={styles.nomecientifico}>Brassica oleracea var. botrytis</Text>
+                                    <Text style={styles.nomeplanta}>Batata doce</Text>
+                                    <Text style={styles.nomecientifico}>Ipomoea batatas</Text>
                                 </View>
                                 <Image source={require('../../../assets/images/core.png')}/>
                             </View>
@@ -101,7 +101,7 @@ const styles = StyleSheet.create({
     corcontainer: {
         display: "flex",
         flexDirection: "row",
-        backgroundColor: "#FFD600",
+        backgroundColor: "#FFE7BC",
         borderRadius: 24,
         height: 170,
         width: 394,
@@ -111,10 +111,9 @@ const styles = StyleSheet.create({
         marginLeft: 16,
         marginTop: 51,
     },
-    caju: {
+    pequi: {
         position: "absolute",
-        marginTop: 23,
-        marginLeft: 180,
+        marginLeft: 148,
     },
     textoapresentacao: {
         marginLeft: 24,
@@ -152,6 +151,7 @@ const styles = StyleSheet.create({
     imagemprincipal: {
         display: "flex",
         alignItems: "center",
+        marginTop: 16,
         gap: 16,
     },
     textos: {

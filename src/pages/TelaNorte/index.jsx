@@ -43,8 +43,8 @@ export default function TelaNorte({navigation}) {
                             </View>
                             <View style={styles.nomefavorito}>
                                 <View style={styles.nome}>
-                                    <Text style={styles.nomeplanta}>Mandioca</Text>
-                                    <Text style={styles.nomecientifico}>Manihot esculenta</Text>
+                                    <Text style={styles.nomeplanta}>Amendoim</Text>
+                                    <Text style={styles.nomecientifico}>Arachis hypogaea</Text>
                                 </View>
                                 <Image source={require('../../../assets/images/core.png')}/>
                             </View>
@@ -55,8 +55,8 @@ export default function TelaNorte({navigation}) {
                             </View>
                             <View style={styles.nomefavorito}>
                                 <View style={styles.nome}>
-                                    <Text style={styles.nomeplanta}>Mandioca</Text>
-                                    <Text style={styles.nomecientifico}>Manihot esculenta</Text>
+                                    <Text style={styles.nomeplanta}>Amendoim</Text>
+                                    <Text style={styles.nomecientifico}>Arachis hypogaea</Text>
                                 </View>
                                 <Image source={require('../../../assets/images/core.png')}/>
                             </View>
@@ -81,8 +81,8 @@ export default function TelaNorte({navigation}) {
                             </View>
                             <View style={styles.nomefavorito}>
                                 <View style={styles.nome}>
-                                    <Text style={styles.nomeplanta}>Mandioca</Text>
-                                    <Text style={styles.nomecientifico}>Manihot esculenta</Text>
+                                    <Text style={styles.nomeplanta}>Milho</Text>
+                                    <Text style={styles.nomecientifico}>Zea mays</Text>
                                 </View>
                                 <Image source={require('../../../assets/images/core.png')}/>
                             </View>
