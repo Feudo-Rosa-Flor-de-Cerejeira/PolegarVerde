@@ -53,7 +53,6 @@ export default function Routes() {
         <Stack.Screen name="TelaSudeste" component={TelaSudeste} />
         <Stack.Screen name="TelaSul" component={TelaSul} />
         <Stack.Screen name="Onboard" component={Onboard} />
-        <Stack.Screen name="Onboard" component={Onboard} />
         <Stack.Screen name="Todos" component={Todos} />
         <Stack.Screen name="GuiaVerde" component={GuiaVerde} />
         <Stack.Screen name="TelaModelo" component={TelaModelo} />
