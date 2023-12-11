@@ -24,7 +24,7 @@ const GuiaVerde = ({navigation}) => {
   const [dataReg,setDataReg] = useState([])
   
     const getData = async () => {
-      const ref = collection(db,'BancoTeste')
+      const ref = collection(db,'Populares')
       const dataFire= await getDocs(ref)
       const alldata = dataFire.docs.map(val => ({...val.data(),id:val.id}))
       setData(alldata)
@@ -114,7 +114,7 @@ const styles = StyleSheet.create({
       backgroundColor: 'white',
       overflow : 'visible',
     },
-    textTitulo: { fontSize:22,textAlign: 'left', color: 'black', marginBottom: 10,marginLeft : 30, fontWeight: "bold"},
+    textTitulo: { fontSize:22,textAlign: 'left', color: '#1e1e1e', marginBottom: 10,marginLeft : 30, fontWeight: "bold"},
     carouselContainer: {
       marginBottom: 20,
     },

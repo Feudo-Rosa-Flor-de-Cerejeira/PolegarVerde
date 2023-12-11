@@ -1,10 +1,13 @@
 import { Text, View, StyleSheet, Image } from "react-native";
+import { useNavigation } from '@react-navigation/native';
 
 export default function MinhasPlantas() {
+    const navigation = useNavigation()
+    
     return (
         <View style={styles.container}>
             <View style={styles.botaoVoltar}>
-                <Text style={styles.voltar}>Voltar</Text>
+                <Text onPress={() => navigation.goBack()} style={styles.voltar}>Voltar</Text>
             </View>
             <Text style={styles.textoTitulo}>
                 Minhas Plantas

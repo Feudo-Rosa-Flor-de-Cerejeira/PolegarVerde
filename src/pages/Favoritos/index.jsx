@@ -1,15 +1,18 @@
+import { useNavigation } from "@react-navigation/native";
 import { Text, View, StyleSheet, Image } from "react-native";
 
+
 export default function MinhasPlantas() {
+        const navigation = useNavigation()
     return (
         <View style={styles.container}>
             <View style={styles.botaoVoltar}>
-                <Text style={styles.voltar}>Voltar</Text>
+                <Text onPress={() => navigation.goBack()} style={styles.voltar}>Voltar</Text>
             </View>
             <View style={styles.tituloCore}>
                 <Image style={styles.iconCore} source={require('../../../assets/images/core-favpage.png')}/>
                 <Text style={styles.textoTitulo}>
-                    Minhas Plantas
+                    Favoritos
                 </Text>
             </View>
             <View style={styles.principal}>

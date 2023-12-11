@@ -32,7 +32,7 @@ export default function TelaNorte({navigation}) {
                             </View>
                             <Image source={require('../../../assets/images/core.png')}/>
                         </View>
-                        <Text style={styles.descricaoplantaprincipal}>A mandioca, também conhecida como aipim ou macaxeira, é uma planta de raiz comestível amplamente cultivada em regiões tropicais. Suas raízes tuberosas são ricas em amido e são uma fonte importante de carboidratos na dieta de muitas comunidades ao redor do mundo.</Text>
+                        <Text numberOfLines={7} style={styles.descricaoplantaprincipal}>A mandioca, também conhecida como aipim ou macaxeira, é uma planta de raiz comestível amplamente cultivada em regiões tropicais. Suas raízes tuberosas são ricas em amido e são uma fonte importante de carboidratos na dieta de muitas comunidades ao redor do mundo.</Text>
                     </View>
                 </View>
                 <View style={styles.plantabaixa}>

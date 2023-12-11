@@ -1,11 +1,17 @@
-import { Text, View, StyleSheet, Image } from "react-native";
+import { Text, View, StyleSheet, Image, TouchableOpacity } from "react-native";
+import { useNavigation } from '@react-navigation/native';
+import { TouchableWithoutFeedback } from "react-native-gesture-handler";
+
 
 export default function editarCondicoes() {
+    const navigation = useNavigation()
+
     return (    
         <View style={styles.container}>
             <View style={styles.main}>
                 <View style={styles.voltarEtitulo}>
-                    <Text style={styles.voltar}>
+                    
+                    <Text onPress={() => navigation.goBack()} style={styles.voltar}>
                         Voltar
                     </Text>
                     <Text style={styles.textoTitulo}>
@@ -80,9 +86,8 @@ export default function editarCondicoes() {
                  </View>
             </View>
             <View style={styles.botaoSalvar}>
-                <Text style={styles.textoSalvar}>Salvar</Text>
+                <Text onPress={() => navigation.goBack()} style={styles.textoSalvar}>Salvar</Text>   
             </View>
-
         </View>
     )
 }

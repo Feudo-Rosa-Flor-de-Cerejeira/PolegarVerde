@@ -15,6 +15,7 @@ const RotaVerde = () => {
         },
         tabBarLabelStyle: {
           fontSize: 15,
+          fontFamily: 'Inter',
           fontWeight: "bold",
           textTransform: "uppercase",
         },
@@ -22,7 +23,7 @@ const RotaVerde = () => {
           textTransform: "none",
         },
         tabBarIndicatorStyle: {
-          backgroundColor: "black",
+          backgroundColor: "#1e1e1e",
           width: 120,
           marginLeft: 40,
         },
@@ -40,7 +41,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
-    backgroundColor: "white",
+    backgroundColor: "#f5f5f5",
   },
   top: {
     paddingTop: 25,

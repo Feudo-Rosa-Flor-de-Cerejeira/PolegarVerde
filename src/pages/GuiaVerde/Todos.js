@@ -81,7 +81,7 @@ const Todos = () => {
                 </View>
                 <Ionicons
                   name="heart-outline"
-                  color={"black"}
+                  color={"#7d7d7d"}
                   size={25}
                   style={styles.icon}
                 ></Ionicons>
@@ -107,25 +107,29 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     overflow: "visible",
     paddingVertical :50,
+    padding: 8,
   },
   container2 :{
     paddingBottom:50,
+    gap: 16,
   },
   pesquisa: {
     flexDirection: "row",
     color: "black",
-    justifyContent:"center",
-    alignItems: "center",
+    justifyContent:'flex-start',
+    alignItems: 'center',
+    paddingHorizontal: 16,
+    paddingVertical: 8,
     backgroundColor: "#E5E5E7",
-    borderRadius: 20,
+    borderRadius: 32,
+    marginHorizontal: 16,
+    gap: 16,
   },
   lupa :{
-    padding:5,
     alignItems : 'center'
   },
   textpesquisa: {
     color: "black",
-    paddingLeft: 20,
     
   },
   lista: {
@@ -148,15 +152,17 @@ const styles = StyleSheet.create({
   },
   textTitulo: {
     fontSize: 18,
+    fontFamily: 'Inter',
     textAlign: "left",
-    color: "black",
+    color: '#1E1E1E',
     marginTop: 5,
     fontWeight: "bold",
   },
   textSub: {
-    fontSize: 9,
+    fontSize: 12,
     textAlign: "left",
-    color: "black",
+    fontFamily: 'Inter',
+    color: "#7D7D7D",
     fontWeight: "200",
     fontStyle: "italic",
   },

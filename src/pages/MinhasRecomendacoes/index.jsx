@@ -1,6 +1,16 @@
-import { Text, View, StyleSheet, Image, ScrollView, TouchableOpacity } from "react-native";
+import { Text, View, StyleSheet, Image, ScrollView, TouchableOpacity, TouchableWithoutFeedback } from "react-native";
+import { useNavigation } from '@react-navigation/native';
+import {useState} from 'react';
 
 export default function MinhasRecomendacoes() {
+    const navigation = useNavigation()
+    const [image, setImage] = useState(require('../../../assets/images/plus.png'));
+
+    const changeImage = () => {
+        setImage(require('../../../assets/images/check.png'));
+        console.log(image);
+    };
+
     return (
         <View style={styles.container}>
             <ScrollView style={[styles.scroll, {width: '100%'}]} showsVerticalScrollIndicator={false}>
@@ -44,22 +54,28 @@ export default function MinhasRecomendacoes() {
                                     </Text>
                                 </View>
                             </View>
-                            <Image style={styles.add} source={require('../../../assets/images/plus.png')}/>
+                            <TouchableOpacity onPress={changeImage}>
+                            <Image style={styles.add} source={image} onPress={changeImage}/>
+                            </TouchableOpacity>
                         </View>
                     </View>
                 </View>
             </View>
             </ScrollView>
             <View style={styles.navBar}>
+                <TouchableOpacity onPress={() => navigation.navigate('Perguntas4')}>
                 <View style={styles.botaoVoltar}>
                     <Image style={styles.seta} source={require('../../../assets/images/seta-esquerda.png')} />
                 </View>
+                </TouchableOpacity>
+                <TouchableWithoutFeedback onPress={() => navigation.navigate('Rota')}>
                 <View style={styles.botaoFinalizar}>
                     <Text style={styles.txtFinalizar}>
                         Finalizar
                     </Text>
                     <Image style={styles.seta} source={require('../../../assets/images/seta-direita.png')} />
                 </View>
+                </TouchableWithoutFeedback>
             </View>
         </View>
     )

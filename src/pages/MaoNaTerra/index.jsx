@@ -1,4 +1,4 @@
-import { Text, View, StyleSheet, Image, TouchableWithoutFeedback } from "react-native";
+import { Text, View, StyleSheet, Image, TouchableWithoutFeedback, TouchableOpacity } from "react-native";
 
 export default function MaoNaTerra({ navigation }) {
     return (
@@ -19,7 +19,9 @@ export default function MaoNaTerra({ navigation }) {
                     <Text style={styles.textoTitulo}>
                         Minhas condições
                     </Text>
+                    <TouchableOpacity onPress={() => navigation.navigate('editarCondicoes')}>
                     <Image source={require('../../../assets/images/edit-icon.png')}/>
+                    </TouchableOpacity>
                 </View>
                 <View style={styles.caixinhas}>
                     <View style={styles.box}>
@@ -61,7 +63,7 @@ export default function MaoNaTerra({ navigation }) {
                 <View style={styles.quadros}>
                     <View style={styles.quadrosPrincipal}>
                         <View style={styles.esquerda}>
-                            <TouchableWithoutFeedback onPress={() => { alert('Clicou aqui!') }}>
+                            <TouchableWithoutFeedback onPress={() => navigation.navigate('MinhasPlantas')}>
                                 <View style={[styles.boxEsquerda, { backgroundColor: '#2E1409' }]}>
                                     <View style={[styles.circulo, {backgroundColor: '#37180B'}]}></View>
                                     <Image style={styles.iconeBoxprincipal} source={require('../../../assets/images/plant.png')}/>
@@ -70,7 +72,7 @@ export default function MaoNaTerra({ navigation }) {
                                     </Text>
                                 </View>
                             </TouchableWithoutFeedback>
-                            <TouchableWithoutFeedback onClick={() => navigation.navigate('editarCondicoes')}>
+                            <TouchableWithoutFeedback onPress={() => navigation.navigate('editarCondicoes')}>
                                 <View style={[styles.boxEsquerda, { backgroundColor: '#50A92E' }]}>
                                     <View style={[styles.circulo, {backgroundColor: '#5FB936'}]}></View>
                                     <Image style={styles.iconeBoxprincipal} source={require('../../../assets/images/form.png')}/>
@@ -90,7 +92,7 @@ export default function MaoNaTerra({ navigation }) {
                                     </Text>
                                 </View>
                             </TouchableWithoutFeedback>
-                            <TouchableWithoutFeedback onPress={() => { alert('Clicou aqui!') }}>
+                            <TouchableWithoutFeedback onPress={() => navigation.navigate('Favoritos')}>
                                 <View style={[styles.boxDireita2, { backgroundColor: '#CC3668' }]}>
                                     <View style={[styles.circulo, {backgroundColor: '#D6417D'}]}></View>
                                     <Image style={styles.iconeBoxprincipal} source={require('../../../assets/images/heart.png')}/>
@@ -111,7 +113,8 @@ const styles = StyleSheet.create({
         backgroundColor: '#F5F5F5',
         marginLeft: 16,
         marginRight: 16,
-        paddingBottom: 16,
+        paddingBottom: 72,
+        paddingTop: 32,
         gap: 24,
         flex: 1,
     },

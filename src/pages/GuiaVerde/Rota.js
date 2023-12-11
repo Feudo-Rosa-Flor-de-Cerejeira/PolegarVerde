@@ -6,6 +6,8 @@ import {
 } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import RotaVerde from "./RotaVerde";
+import MaoNaTerra from "../MaoNaTerra";
+import Notificacoes from "../Notificacoes";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Teste from "./Teste";
 import { Ionicons } from "@expo/vector-icons";
@@ -51,7 +53,7 @@ const Rota = () => {
                 ></Ionicons>
         ),
       }} />
-      <BottomTab.Screen name="Notificações" component={Teste}
+      <BottomTab.Screen name="Notificações" component={Notificacoes}
       options={{
         tabBarLabel: 'Notificações',
         tabBarIcon: ({ color, size }) => (
@@ -62,7 +64,7 @@ const Rota = () => {
                 ></Ionicons>
         ),
       }} />
-      <BottomTab.Screen name="Mao" component={Teste} 
+      <BottomTab.Screen name="Mao" component={MaoNaTerra} 
       options={{
         tabBarLabel: 'Mao na terra',
         tabBarIcon: ({ color, size }) => (

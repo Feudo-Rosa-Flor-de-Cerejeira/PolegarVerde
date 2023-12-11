@@ -57,9 +57,9 @@ export default function TelaModelo({ navigation,route }) {
     <ScrollView style={styles.container}>
       <View style={styles.coloridocomimagem}>
         <View style={styles.xis}>
-          <ExitButton onPress={() => navigation.navigate("GuiaVerde")} />
+          <ExitButton onPress={() => navigation.goBack()} />
         </View>
-        <View style={styles.quadradocolorido} />
+        <View style={[styles.quadradocolorido, {backgroundColor:`${dataPlantas.Cor}`}]} />
         <Image
           src={`${dataPlantas.URL}`}
           style={styles.imagem}
@@ -68,11 +68,9 @@ export default function TelaModelo({ navigation,route }) {
       <View style={styles.containerinfo}>
         <View style={styles.containerTexto}>
           <Text style={styles.titulo}>{dataPlantas.Nome}</Text>
-          <Text style={styles.subtitulo}>Persea americana</Text>
+          <Text style={styles.subtitulo}>{dataPlantas.NomeAlternativos}</Text>
           <Text style={styles.descricao}>
-            Rico em nutrientes, o abacate é conhecido por suas gorduras
-            saudáveis e é frequentemente usado em saladas, guacamole e outros
-            pratos culinários.
+            {dataPlantas.Descricao}
           </Text>
         </View>
         <View style={styles.containerCarac}>
@@ -83,7 +81,7 @@ export default function TelaModelo({ navigation,route }) {
                 style={styles.Isolo}
                 source={require("../../../assets/images/solo.png")}
               />
-              <Text style={styles.Tsolo}>Solo Drenado</Text>
+              <Text style={styles.Tsolo}>Solo {dataPlantas.Solo}</Text>
             </View>
             <View style={styles.Tempo}>
               <Image
@@ -91,14 +89,14 @@ export default function TelaModelo({ navigation,route }) {
                 source={require("../../../assets/images/tempo.png")}
               />
               <Text style={styles.T1tempo}>Colheita em</Text>
-              <Text style={styles.T2tempo}>3-4 anos</Text>
+              <Text style={styles.T2tempo}>{dataPlantas.Paciencia}</Text>
             </View>
             <View style={styles.Luz}>
               <Image
                 style={styles.Iluz}
                 source={require("../../../assets/images/luz.png")}
               />
-              <Text style={styles.Tluz}>Muita luz</Text>
+              <Text style={styles.Tluz}>{dataPlantas.Luz}</Text>
             </View>
             <View style={styles.agua}>
               <View style={styles.Iagua}>
@@ -115,7 +113,7 @@ export default function TelaModelo({ navigation,route }) {
                   source={require("../../../assets/images/drop1.png")}
                 />
               </View>
-              <Text style={styles.Tagua}>Rega média</Text>
+              <Text style={styles.Tagua}>Rega de {dataPlantas.Rega}</Text>
             </View>
           </View>
         </View>
@@ -415,10 +413,11 @@ const styles = StyleSheet.create({
   },
   Tsolo: {
     marginTop: 12,
-    marginLeft: 10,
     fontFamily: "Inter",
     color: "#F5F5F5",
-    fontSize: 8,
+    fontSize: 9,
+    textAlign: 'center',
+    fontWeight: 'bold',
   },
   Tempo: {
     width: 72,
@@ -442,10 +441,11 @@ const styles = StyleSheet.create({
   },
   T2tempo: {
     marginTop: 0,
-    marginLeft: 18,
     fontFamily: "Inter",
     color: "#F5F5F5",
-    fontSize: 8,
+    fontSize: 9,
+    textAlign: 'center',
+    fontWeight: 'bold',
   },
   Luz: {
     width: 72,
@@ -462,10 +462,12 @@ const styles = StyleSheet.create({
   },
   Tluz: {
     marginTop: 6,
-    marginLeft: 17.9,
     fontFamily: "Inter",
     color: "#F5F5F5",
-    fontSize: 8,
+    fontSize: 10,
+    textAlign: 'center',
+    fontWeight: 'bold',
+
   },
   agua: {
     width: 72,
@@ -498,9 +500,10 @@ const styles = StyleSheet.create({
   },
   Tagua: {
     marginTop: 12,
-    marginLeft: 13,
+    textAlign: 'center',
     fontFamily: "Inter",
     color: "#F5F5F5",
+    fontWeight: 'bold',
     fontSize: 8,
   },
   Accordeons: {

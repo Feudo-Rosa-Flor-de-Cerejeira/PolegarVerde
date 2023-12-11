@@ -38,7 +38,7 @@ export default function Perguntas4({navigation}) {
           } else {
             console.error('Nenhuma resposta selecionada.');
           }
-          navigation.navigate('GuiaVerde');
+          navigation.navigate('MinhasRecomendacoes');
         }
     return (
         <View style={styles.container}>

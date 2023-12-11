@@ -32,7 +32,7 @@ export default function TelaCentroOeste({navigation}) {
                             </View>
                             <Image source={require('../../../assets/images/core.png')}/>
                         </View>
-                        <Text style={styles.descricaoplantaprincipal}>É uma das culturas mais importantes globalmente e possui diversas variedades, desde grãos amarelos e doces até grãos usados para a produção de farinha e ração animal. O milho é uma fonte rica de carboidratos, fibras e várias vitaminas e minerais. É utilizado para fazer uma ampla variedade de produtos, como alimentos, bebidas, óleos e até biocombustíveis. Além disso, partes da planta, como a palha e o sabugo, também são utilizadas em várias aplicações, desde a alimentação animal até a produção de papel e combustíveis.</Text>
+                        <Text numberOfLines={7} style={styles.descricaoplantaprincipal}>É uma das culturas mais importantes globalmente e possui diversas variedades, desde grãos amarelos e doces até grãos usados para a produção de farinha e ração animal. O milho é uma fonte rica de carboidratos, fibras e várias vitaminas e minerais. É utilizado para fazer uma ampla variedade de produtos, como alimentos, bebidas, óleos e até biocombustíveis. Além disso, partes da planta, como a palha e o sabugo, também são utilizadas em várias aplicações, desde a alimentação animal até a produção de papel e combustíveis.</Text>
                     </View>
                 </View>
                 <View style={styles.plantabaixa}>

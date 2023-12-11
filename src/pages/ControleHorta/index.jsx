@@ -1,14 +1,18 @@
 import React, {useState} from 'react';
-import { Text, View, StyleSheet, Image } from "react-native";
+import { Text, View, StyleSheet, Image, TouchableOpacity } from "react-native";
 import { CheckBox } from 'react-native-elements';
+import { useNavigation } from '@react-navigation/native';
 
 export default function ControleHorta() {
+    const navigation = useNavigation()
 
     return (
         <View style={styles.container}>
             <View style={styles.containerSuperior}>
                 <View style={styles.setaDia}>
+                    <TouchableOpacity onPress={() => navigation.goBack()}>
                     <Image style={styles.seta} source={require('../../../assets/images/seta.png')}/>
+                    </TouchableOpacity>
                     <Text style={styles.dia}>
                         Hoje
                     </Text>

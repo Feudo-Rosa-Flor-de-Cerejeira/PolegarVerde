@@ -52,7 +52,7 @@ const CustomImageCarousal = ({data,pagination}) => {
             );
             return {
               transform: [{scale}],
-              backgroundColor :'#07261b'
+              backgroundColor :`${item.Cor}`
             };
           });
           if (!item.URL) {

@@ -13,32 +13,6 @@ export default function Notificacoes() {
                         </Text>
                         <View style={styles.grupoNotif}>
                             <View style={styles.notifEFaixa}>
-                                <View style={[styles.faixa, {backgroundColor: '#479F26',}]}>
-                                </View>
-                                <View style={styles.iconeETexto}>
-                                    <View style={[styles.icone, {backgroundColor: '#479F26',}]}>
-                                        <Image styles={styles.iconeNotif} source={require('../../../assets/images/icone-hora.png')}/>
-                                    </View>
-                                    <View style={styles.notifTextos}>
-                                        <Text style={styles.notificacao}>Está na hora de regar suas cenouras!</Text>
-                                        <Text style={styles.tempoTexto}>8 min atrás</Text>
-                                    </View>
-                                </View>
-                            </View>
-                            <View style={styles.notifEFaixa}>
-                                <View style={[styles.faixa, {backgroundColor: '#00C3D4',}]}>
-                                </View>
-                                <View style={styles.iconeETexto}>
-                                    <View style={[styles.icone, {backgroundColor: '#00C3D4',}]}>
-                                        <Image styles={styles.iconeNotif} source={require('../../../assets/images/icone-artigo.png')}/>
-                                    </View>
-                                    <View style={styles.notifTextos}>
-                                        <Text style={styles.notificacao}>Confira o artigo “Você sabia que morango não é fruta?”</Text>
-                                        <Text style={styles.tempoTexto}>10 min atrás</Text>
-                                    </View>
-                                </View>
-                            </View>
-                            <View style={styles.notifEFaixa}>
                                 <View style={[styles.faixa, {backgroundColor: '#CC3668',}]}>
                                 </View>
                                 <View style={styles.iconeETexto}>
@@ -46,8 +20,21 @@ export default function Notificacoes() {
                                         <Image styles={styles.iconeNotif} source={require('../../../assets/images/icone-flor.png')}/>
                                     </View>
                                     <View style={styles.notifTextos}>
-                                        <Text style={styles.notificacao}>Confira o artigo “Você sabia que morango não é fruta?”</Text>
+                                        <Text style={styles.notificacao}>A primavera inicia neste dia 22</Text>
                                         <Text style={styles.tempoTexto}>10 min atrás</Text>
+                                    </View>
+                                </View>
+                            </View>
+                            <View style={styles.notifEFaixa}>
+                                <View style={[styles.faixa, {backgroundColor: '#479F26',}]}>
+                                </View>
+                                <View style={styles.iconeETexto}>
+                                    <View style={[styles.icone, {backgroundColor: '#479F26',}]}>
+                                        <Image styles={styles.iconeNotif} source={require('../../../assets/images/icone-hora.png')}/>
+                                    </View>
+                                    <View style={styles.notifTextos}>
+                                        <Text style={styles.notificacao}>Está na hora de regar as berinjelas!</Text>
+                                        <Text style={styles.tempoTexto}>12 min atrás</Text>
                                     </View>
                                 </View>
                             </View>
@@ -67,7 +54,7 @@ export default function Notificacoes() {
                                     </View>
                                     <View style={styles.notifTextos}>
                                         <Text style={styles.notificacao}>Está na hora de regar suas cenouras!</Text>
-                                        <Text style={styles.tempoTexto}>8 min atrás</Text>
+                                        <Text style={styles.tempoTexto}>23 horas atrás</Text>
                                     </View>
                                 </View>
                             </View>
@@ -79,8 +66,8 @@ export default function Notificacoes() {
                                         <Image styles={styles.iconeNotif} source={require('../../../assets/images/icone-artigo.png')}/>
                                     </View>
                                     <View style={styles.notifTextos}>
-                                        <Text style={styles.notificacao}>Confira o artigo “Você sabia que morango não é fruta?”</Text>
-                                        <Text style={styles.tempoTexto}>10 min atrás</Text>
+                                        <Text style={styles.notificacao}>Confira o artigo “Receitas para o feriado”</Text>
+                                        <Text style={styles.tempoTexto}>1 dia atrás</Text>
                                     </View>
                                 </View>
                             </View>
@@ -92,8 +79,8 @@ export default function Notificacoes() {
                                         <Image styles={styles.iconeNotif} source={require('../../../assets/images/icone-flor.png')}/>
                                     </View>
                                     <View style={styles.notifTextos}>
-                                        <Text style={styles.notificacao}>Confira o artigo “Você sabia que morango não é fruta?”</Text>
-                                        <Text style={styles.tempoTexto}>10 min atrás</Text>
+                                        <Text style={styles.notificacao}>Cuidado com o calor dos próximos dias</Text>
+                                        <Text style={styles.tempoTexto}>1 dia atrás</Text>
                                     </View>
                                 </View>
                             </View>
@@ -113,7 +100,7 @@ export default function Notificacoes() {
                                     </View>
                                     <View style={styles.notifTextos}>
                                         <Text style={styles.notificacao}>Está na hora de regar suas cenouras!</Text>
-                                        <Text style={styles.tempoTexto}>8 min atrás</Text>
+                                        <Text style={styles.tempoTexto}>9 de dezembro</Text>
                                     </View>
                                 </View>
                             </View>
@@ -126,7 +113,7 @@ export default function Notificacoes() {
                                     </View>
                                     <View style={styles.notifTextos}>
                                         <Text style={styles.notificacao}>Confira o artigo “Você sabia que morango não é fruta?”</Text>
-                                        <Text style={styles.tempoTexto}>10 min atrás</Text>
+                                        <Text style={styles.tempoTexto}>8 de dezembro</Text>
                                     </View>
                                 </View>
                             </View>
@@ -139,7 +126,7 @@ export default function Notificacoes() {
                                     </View>
                                     <View style={styles.notifTextos}>
                                         <Text style={styles.notificacao}>Confira o artigo “Você sabia que morango não é fruta?”</Text>
-                                        <Text style={styles.tempoTexto}>10 min atrás</Text>
+                                        <Text style={styles.tempoTexto}>8 de dezembro</Text>
                                     </View>
                                 </View>
                             </View>

@@ -32,7 +32,7 @@ export default function TelaSudeste({navigation}) {
                             </View>
                             <Image source={require('../../../assets/images/core.png')}/>
                         </View>
-                        <Text style={styles.descricaoplantaprincipal}>O tomate é uma fruta comumente consumida como um vegetal. Ele tem uma pele fina e suculenta, com polpa macia e sementes no seu interior. Os tomates vêm em várias cores, incluindo vermelho, amarelo e verde, e são uma excelente fonte de vitaminas C e K, além de licopeno, um antioxidante associado a vários benefícios à saúde. Eles são amplamente utilizados na culinária global, sendo parte essencial de saladas, molhos, sucos e muitos outros pratos.</Text>
+                        <Text numberOfLines={7} style={styles.descricaoplantaprincipal}>O tomate é uma fruta comumente consumida como um vegetal. Ele tem uma pele fina e suculenta, com polpa macia e sementes no seu interior. Os tomates vêm em várias cores, incluindo vermelho, amarelo e verde, e são uma excelente fonte de vitaminas C e K, além de licopeno, um antioxidante associado a vários benefícios à saúde. Eles são amplamente utilizados na culinária global, sendo parte essencial de saladas, molhos, sucos e muitos outros pratos.</Text>
                     </View>
                 </View>
                 <View style={styles.plantabaixa}>

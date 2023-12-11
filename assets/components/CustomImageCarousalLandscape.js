@@ -1,5 +1,6 @@
-import {StyleSheet, View, Image, useWindowDimensions, Text} from 'react-native';
+import {StyleSheet, View, Image, useWindowDimensions, Text, TouchableOpacity} from 'react-native';
 import React, {useState, useEffect, useRef} from 'react';
+import { useNavigation } from '@react-navigation/native';
 import Animated, {
   useSharedValue,
   useAnimatedScrollHandler,
@@ -24,6 +25,8 @@ const CustomImageCarousal = ({data, autoPlay, pagination}) => {
       x.value = event.contentOffset.x;
     },
   });
+
+  const navigation = useNavigation()
   return (
     <View>
       <Animated.ScrollView
@@ -53,9 +56,11 @@ const CustomImageCarousal = ({data, autoPlay, pagination}) => {
           }
           return (
             <View style={{width: SIZE}} key={index}>
+              <TouchableOpacity onPress={() => navigation.navigate('Favoritos')}>
               <Animated.View style={[styles.imageContainer, style]}>
-                <Image src={item.URL} style={styles.image} />
+                <Image onPress={() => navigation.navigate('Favoritos')} src={item.URL} style={styles.image} />
               </Animated.View>
+              </TouchableOpacity>
               <Text style={styles.textTitulo}>{item.Nome}</Text>
               <Text style={styles.textSub}>{item.Subtitulo}</Text>
             </View>

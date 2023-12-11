@@ -28,11 +28,11 @@ export default function TelaSul({navigation}) {
                         <View style={styles.nomefavorito}>
                             <View style={styles.nome}>
                                 <Text style={styles.nomeplanta}>Maçã</Text>
-                                <Text style={styles.nomecientifico}>Malus domestica Borkh</Text>
+                                <Text numberOfLines={7} style={styles.nomecientifico}>Malus domestica Borkh</Text>
                             </View>
                             <Image source={require('../../../assets/images/core.png')}/>
                         </View>
-                        <Text style={styles.descricaoplantaprincipal}>A maçã é uma fruta originária da Ásia e é cultivada em todo o mundo. Ela vem em várias cores e variedades, com polpa suculenta e doce. Rica em fibras, vitaminas e antioxidantes, a maçã é conhecida por seus benefícios à saúde, incluindo a promoção da digestão e a redução do risco de doenças crônicas.A maçã é uma fruta originária da Ásia e é cultivada em todo o mundo. Ela vem em várias cores e variedades, com polpa suculenta e doce. Rica em fibras, vitaminas e antioxidantes, a maçã é conhecida por seus benefícios à saúde, incluindo a promoção da digestão e a redução do risco de doenças crônicas.</Text>
+                        <Text numberOfLines={7} style={styles.descricaoplantaprincipal}>A maçã é uma fruta originária da Ásia e é cultivada em todo o mundo. Ela vem em várias cores e variedades, com polpa suculenta e doce. Rica em fibras, vitaminas e antioxidantes, a maçã é conhecida por seus benefícios à saúde, incluindo a promoção da digestão e a redução do risco de doenças crônicas.A maçã é uma fruta originária da Ásia e é cultivada em todo o mundo. Ela vem em várias cores e variedades, com polpa suculenta e doce. Rica em fibras, vitaminas e antioxidantes, a maçã é conhecida por seus benefícios à saúde, incluindo a promoção da digestão e a redução do risco de doenças crônicas.</Text>
                     </View>
                 </View>
                 <View style={styles.plantabaixa}>
